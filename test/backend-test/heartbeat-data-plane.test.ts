@@ -798,9 +798,12 @@ describe("heartbeat data plane", () => {
     });
 
     test("retention cleanup racing a tracked write removes only expired data", async () => {
-        const { data, store } = await createRuntime("retention");
+        // Retention uses SQLite's wall clock, so keep the fixture and calculator on the same clock.
+        const now = dayjs.utc();
+        const { data, store } = await createRuntime("retention", now);
         await store.exec(
-            "INSERT INTO heartbeat (monitor_id, status, msg, time, important) VALUES (1, 0, 'expired', '2000-01-01 00:00:00', 1)"
+            "INSERT INTO heartbeat (monitor_id, status, msg, time, important) VALUES (1, 0, 'expired', ?, 1)",
+            [store.isoDateTimeMillis(now.subtract(31, "day"))]
         );
         const coordinator = new DatabaseMaintenanceCoordinator();
         const settings = {
@@ -811,7 +814,7 @@ describe("heartbeat data plane", () => {
         };
 
         await Promise.all([
-            coordinator.run(() => data.write(heartbeat(store))),
+            coordinator.run(() => data.write(heartbeat(store, { time: store.isoDateTimeMillis(now) }))),
             coordinator.maintain(() => clearOldData(store, settings, data)),
         ]);
 
