@@ -703,7 +703,7 @@
     "matrixDesc1": "Is féidir leat an t-aitheantas seomra inmheánach a fháil ach breathnú ar an rannán ardleibhéil de shocruithe an tseomra i do chliant Maitrís. Ba cheart go mbeadh cuma air !QMdRCpUIfLwsfjxye6:home.server.",
     "matrixDesc2": "Moltar go mór duit úsáideoir nua a chruthú agus ná húsáid do chomhartha rochtana úsáideora Matrix féin mar go gceadóidh sé rochtain iomlán ar do chuntas agus ar na seomraí go léir a ndeachaigh tú isteach ann. Ina áit sin, cruthaigh úsáideoir nua agus gan ach tabhair cuireadh dó go dtí an seomra inar mian leat an fógra a fháil. Is féidir leat an comhartha rochtana a fháil trí {0} a rith",
     "aboutNotifyChannel": "Spreagfaidh an cainéal fógra deisce nó soghluaiste do gach ball den chineál, cibé infhaighteacht atá socraithe acu go gníomhach nó as oifig.",
-    "aboutKumaURL": "Má fhágann tú an réimse URL iglo.monitor bán, beidh sé réamhshocraithe chuig an leathanach Project GitHub.",
+    "aboutIgloMonitorURL": "Má fhágann tú an réimse URL iglo.monitor bán, beidh sé réamhshocraithe chuig an leathanach Project GitHub.",
     "smtpDkimDomain": "Ainm Fearainn",
     "smtpDkimheaderFieldNames": "Eochracha Ceanntásc le síniú (Roghnach)",
     "wayToGetPagerDutyKey": "Is féidir leat é seo a fháil ach dul chuig Seirbhís -> Eolaire Seirbhíse -> (Roghnaigh seirbhís) -> Comhtháthaithe -> Cuir comhtháthú leis. Anseo is féidir leat cuardach a dhéanamh ar \"Imeachtaí API V2\". Tuilleadh eolais {0}",

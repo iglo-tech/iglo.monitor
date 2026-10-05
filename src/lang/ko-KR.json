@@ -233,7 +233,7 @@
     "igloMonitor URL": "iglo.monitor URL",
     "aboutWebhooks": "Webhook에 대한 자세한 내용: {0}",
     "aboutChannelName": "Webhook 채널을 바이패스하려면 {0}에 채널 이름을 입력하세요. 예: #기타-채널",
-    "aboutKumaURL": "iglo.monitor URL 필드를 공백으로 두면 기본적으로 Github Project 페이지로 설정합니다,",
+    "aboutIgloMonitorURL": "iglo.monitor URL 필드를 공백으로 두면 기본적으로 Github Project 페이지로 설정합니다,",
     "emojiCheatSheet": "이모지 목록: {0}",
     "rocket.chat": "Rocket.chat",
     "pushover": "Pushover",

@@ -215,7 +215,7 @@
     "Penguin Statistics Live Protocol v3": "Penguin Statistics Live-Protokoll v3 (Protobuf-Kodierung)",
     "Discourage search engines from indexing site": "Suachmaschinan davo obhoidn, dass de Seitn indexiern",
     "confirmImportMsg": "Bist da ganz sicher, dass d' d'Sicherung eispuin wuist? Schau liaba nomoi noch, ob d' de richtige Import-Option ausgwählt host.",
-    "aboutKumaURL": "Wannst des Feld fia de iglo.monitor URL laar lasst, dann werd automatisch de GitHub-Seitn vom Projekt hergnumma.",
+    "aboutIgloMonitorURL": "Wannst des Feld fia de iglo.monitor URL laar lasst, dann werd automatisch de GitHub-Seitn vom Projekt hergnumma.",
     "mongodbCommandDescription": "Führ an MongoDB-Befehl gegn de Datenbank aus. Informationa über de verfügbarn Befehle findst in da {documentation}",
     "threemaBasicModeInfo": "Hinweis: De Einbindung nutzt Threema Gateway im \"Basic Mode\" (serverbasierte Verschlüsselung). Mehr Details dazu findst unta {0}.",
     "smspartnerPhoneNumberHelptext": "De Nummer muaß im internationaln Format {0}, {1} sei. Mehrere Nummern muaß ma mit {2} trenna",

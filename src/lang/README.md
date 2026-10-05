@@ -1,20 +1,16 @@
-# Translations
+# iglo.monitor translations
 
-## How to translate
+Translations live in this repository under `src/lang/`. The English catalog, `en.json`, defines the translation keys. Existing catalogs were inherited from Uptime Kuma; that project's Weblate instance does not manage iglo.monitor translations.
 
-(2023-01-24 Updated)
+To update a translation, edit its JSON catalog and preserve interpolation names such as `{name}`, `{0}`, and linked message references. Keep project references spelled `iglo.monitor`.
 
-1. Go to [https://weblate.kuma.pet](https://weblate.kuma.pet/projects/uptime-kuma/uptime-kuma/)
-2. Register an account on Weblate
-3. Make sure your GitHub email is matched with Weblate's account, so that it could show you as a contributor on GitHub
-4. Choose your language on Weblate and start translating.
+To add a language, create its catalog and add the language code and display name to `languageList` in [src/i18n.ts](../i18n.ts). Missing messages fall back to English.
 
-## How to add a new language in the dropdown
+Validate catalogs with:
 
-1. Add your language at https://weblate.kuma.pet/projects/uptime-kuma/uptime-kuma/
-2. Find the language code (You can find it at the end of the URL)
-3. Go to https://github.com/louislam/uptime-kuma/blob/master/src/i18n.js and click `Edit` icon
-4. Add your language at the end of `languageList`, format: `"zh-TW": "繁體中文 (台灣)",`
-5. Commit and make a pull request for me to approve
+```bash
+bun test ./test/backend-test/check-translations.test.ts
+bun run build:frontend
+```
 
-If you do not have programming skills, let me know in [the issues section](https://github.com/louislam/uptime-kuma/issues). I will assist you. 😏
+The canonical repository is [iglo-tech/iglo.monitor](https://github.com/iglo-tech/iglo.monitor), on the `main` branch.

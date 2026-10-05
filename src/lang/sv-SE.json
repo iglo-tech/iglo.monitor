@@ -806,7 +806,7 @@
     "matrixDesc1": "Du kan hitta det interna rumsid:t genom att titta i den avancerade sektionen av rumsinställningarna i din Matrix-klient. Det bör vara liknande !QMdRCpUIfLwsfjxye6:home.server.",
     "matrixDesc2": "Det är rekommenderat att du skapar en ny användare och inte använder din egna Matrix-användares accesstoken eftersom det ger full access till ditt konto och alla rum du gått med i. Skapa en ny användare och invitera endast till rummen du vill ska få notifieringen. Du kan komma åt accesstoken genom att köra {0}",
     "aboutWebhooks": "Mer information om Webbhooks på: {0}",
-    "aboutKumaURL": "Om du lämnar iglo.monitor URL-fältet tomt, kommer den som standard till projektsidan på Github.",
+    "aboutIgloMonitorURL": "Om du lämnar iglo.monitor URL-fältet tomt, kommer den som standard till projektsidan på Github.",
     "smtpDkimDesc": "Vänligen hänvisa till Nodemailer DKIM {0} för användning.",
     "smtpDkimheaderFieldNames": "Headernycklar att signera (Valfritt)",
     "smtpDkimskipFields": "Headernycklar att inte signera (Valfritt)",

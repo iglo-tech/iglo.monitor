@@ -617,7 +617,7 @@
     "promosmsAllowLongSMS": "Permitir SMS largo",
     "igloMonitor URL": "URL de iglo.monitor",
     "Icon Emoji": "Icono Emoji",
-    "aboutKumaURL": "Si dejas vacío el campo URL iglo.monitor, predeterminará la página GitHub del Proyecto.",
+    "aboutIgloMonitorURL": "Si dejas vacío el campo URL iglo.monitor, predeterminará la página GitHub del Proyecto.",
     "smtpDkimSettings": "Ajustes DKIM",
     "smtpDkimDomain": "Nombre de Dominio",
     "smtpDkimKeySelector": "Selector de Clave",

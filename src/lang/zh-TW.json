@@ -259,7 +259,7 @@
     "igloMonitor URL": "iglo.monitor 網址",
     "aboutWebhooks": "更多關於 Webhook 的資訊: {0}",
     "aboutChannelName": "如果您不想使用 Webhook 頻道，請在 {0} 頻道名稱欄位填入您想使用的頻道。例如: #其他頻道",
-    "aboutKumaURL": "如果您未填入 iglo.monitor 網址。將預設使用專案 Github 頁面。",
+    "aboutIgloMonitorURL": "如果您未填入 iglo.monitor 網址。將預設使用專案 Github 頁面。",
     "emojiCheatSheet": "Emoji 一覽表: {0}",
     "rocket.chat": "Rocket.Chat",
     "pushover": "Pushover",

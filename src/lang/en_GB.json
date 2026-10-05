@@ -675,7 +675,7 @@
     "signalUseTemplate": "Use custom message template",
     "signalUseTemplateDescription": "If enabled, the message will be sent using a custom template. You can use Liquid templating to customise the notification format.",
     "aboutWebhooks": "More info about Webhooks on: {0}",
-    "aboutKumaURL": "If you leave the iglo.monitor URL field blank, it will default to the Project GitHub page.",
+    "aboutIgloMonitorURL": "If you leave the iglo.monitor URL field blank, it will default to the Project GitHub page.",
     "smtpDkimHashAlgo": "Hash Algorithm (Optional)",
     "alertaEnvironment": "Environment",
     "smseagleRecipientType": "Recipient type",

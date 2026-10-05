@@ -9,6 +9,7 @@ Use `.github/workflows/release.yml` as the release implementation. Drive and ver
 
 ## Release contract
 
+- Publish to `iglo-tech/iglo.monitor` (https://github.com/iglo-tech/iglo.monitor); use `--repo iglo-tech/iglo.monitor` for repository-scoped `gh` commands.
 - Publish only tags matching `v*`.
 - Use SemVer tags such as `v1.2.0`, `v1.2.0-beta.1`, or `v1.2.0-rc.1`.
 - Keep `package.json` version equal to the tag without the leading `v`.
@@ -57,7 +58,7 @@ Also require `git diff --check`. Do not tag a failing revision; report the exact
 ## 4. Publish
 
 1. Commit only the intended version, generated assets, and explicitly requested release-system changes.
-2. Push the release commit to `master`.
+2. Push the release commit to `main`.
 3. Wait for `.github/workflows/ci.yml` on that exact commit to succeed.
 4. Create and push an annotated tag on that exact commit:
 

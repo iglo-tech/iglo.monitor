@@ -628,7 +628,7 @@
     "promosmsPhoneNumber": "Telefónne číslo (pre poľského príjemcu, môžete vynechať smerové čísla)",
     "matrixDesc1": "Interné ID miestnosti nájdete v rozšírenej sekcii nastavení miestnosti vo vašom klientovi Matrix. Malo by vyzerať takto: !QMdRCpUIfLwsfjxye6:home.server.",
     "matrixDesc2": "Dôrazne sa odporúča vytvoriť nového používateľa a nepoužívať vlastný prístupový token používateľa Matrix, pretože vám to umožní plný prístup k vášmu účtu a všetkým miestnostiam, ku ktorým ste sa pripojili. Namiesto toho vytvorte nového používateľa a pozvite ho iba do miestnosti, v ktorej chcete dostávať oznámenia. Prístupový token získate spustením príkazu {0}",
-    "aboutKumaURL": "Ak necháte pole URL adresy iglo.monitor prázdne, predvolene sa zobrazí stránka projektu GitHub.",
+    "aboutIgloMonitorURL": "Ak necháte pole URL adresy iglo.monitor prázdne, predvolene sa zobrazí stránka projektu GitHub.",
     "PhoneNumbers": "Telefónne čísla",
     "telegramServerUrl": "(Voliteľné) URL adresa servera",
     "telegramServerUrlDescription": "Ak chcete zrušiť obmedzenia rozhrania API botov Telegramu alebo získať prístup v blokovaných oblastiach (Čína, Irán atď.), kliknite na {0}. Predvolené: {1}",

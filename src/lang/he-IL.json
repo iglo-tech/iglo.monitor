@@ -259,7 +259,7 @@
     "igloMonitor URL": "iglo.monitor URL",
     "aboutWebhooks": "מידע נוסף על Webhooks ב: {0}",
     "aboutChannelName": "הזן את שם הערוץ בשדה {0} שם ערוץ אם ברצונך לעקוף את ערוץ Webhook. לדוגמה: #ערוץ אחר",
-    "aboutKumaURL": "אם תשאיר את השדה iglo.monitor URL ריק, הוא יעבור כברירת מחדל לעמוד Project GitHub.",
+    "aboutIgloMonitorURL": "אם תשאיר את השדה iglo.monitor URL ריק, הוא יעבור כברירת מחדל לעמוד Project GitHub.",
     "emojiCheatSheet": "גיליון הונאה של אמוג'י: {0}",
     "rocket.chat": "Rocket.Chat",
     "pushover": "Pushover",

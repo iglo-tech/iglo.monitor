@@ -34,7 +34,7 @@ class HomeAssistant extends NotificationProvider {
                             name: monitorJSON?.name,
                             status: heartbeatJSON?.status,
                             channel: "iglo.monitor",
-                            icon_url: "https://raw.githubusercontent.com/iglo-tech/iglo.monitor/master/public/icon.png",
+                            icon_url: "https://raw.githubusercontent.com/iglo-tech/iglo.monitor/main/public/icon.png",
                         },
                     }),
                 },

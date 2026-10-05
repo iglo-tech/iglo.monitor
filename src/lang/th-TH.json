@@ -238,7 +238,7 @@
     "igloMonitor URL": "iglo.monitor URL",
     "aboutWebhooks": "ข้อมูลเพิ่มเติมสำหรับ Webhooks : {0}",
     "aboutChannelName": "ใส่ชื่อห้องใน {0} ในช่องชื่อห้องถ้าต้องการที่จะข้าม Webhook, เช่น: #ช่องอื่นๆ",
-    "aboutKumaURL": "ถ้าคุณไม่ใส่ข้อมูลในช่อง iglo.monitor URL ค่าเริ่มต้นจะเป็นจะเป็น iglo.monitor Github",
+    "aboutIgloMonitorURL": "ถ้าคุณไม่ใส่ข้อมูลในช่อง iglo.monitor URL ค่าเริ่มต้นจะเป็นจะเป็น iglo.monitor Github",
     "emojiCheatSheet": "ตาราง Emoji : {0}",
     "rocket.chat": "Rocket.Chat",
     "pushover": "Pushover",

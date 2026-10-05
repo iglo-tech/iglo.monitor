@@ -286,7 +286,7 @@
     "pushoversounds classical": "کلاسیک",
     "smtpDkimSettings": "تنظیمات DKIM",
     "aboutChannelName": "اگر می‌خواهید کانال وب هوک را دور بزنید، نام کانال را در قسمت {0} نام کانال وارد کنید. مثال: #other-channel",
-    "aboutKumaURL": "در صورت خالی‌ماندنِ قسمت نشانی iglo.monitor، صفحهٔ گیت‌هاب پروژه به‌عنوان مقدار پیش‌فرض در نظر گرفته می‌شود.",
+    "aboutIgloMonitorURL": "در صورت خالی‌ماندنِ قسمت نشانی iglo.monitor، صفحهٔ گیت‌هاب پروژه به‌عنوان مقدار پیش‌فرض در نظر گرفته می‌شود.",
     "smtpDkimDesc": "لطفاً برای استفاده به Nodemailer DKIM {0} مراجعه کنید.",
     "alertaApiEndpoint": "اند پوینت API",
     "serwersmsAPIUser": "نام کاربری API (شامل پیشوند webapi_)",

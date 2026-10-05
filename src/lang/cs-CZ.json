@@ -263,7 +263,7 @@
     "igloMonitor URL": "iglo.monitor URL",
     "aboutWebhooks": "Více informací o Webhoocích naleznete na adrese: {0}",
     "aboutChannelName": "Pro vynechání Webhook kanálu zadejte jeho název do pole Název kanálu {0}. Příklad: #jiny-kanal",
-    "aboutKumaURL": "Pokud ponecháte pole URL adresa iglo.monitor prázdné, použije se domovská stránka GitHub projektu.",
+    "aboutIgloMonitorURL": "Pokud ponecháte pole URL adresa iglo.monitor prázdné, použije se domovská stránka GitHub projektu.",
     "emojiCheatSheet": "Tahák smajlíků: {0}",
     "rocket.chat": "Rocket.Chat",
     "pushover": "Pushover",

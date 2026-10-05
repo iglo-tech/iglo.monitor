@@ -29,7 +29,7 @@
                 {{ $t("aboutChannelName", ["rocket.chat"]) }}
             </p>
             <p style="margin-top: 8px">
-                {{ $t("aboutKumaURL") }}
+                {{ $t("aboutIgloMonitorURL") }}
             </p>
             <i18n-t tag="p" keypath="emojiCheatSheet" style="margin-top: 8px">
                 <a href="https://www.webfx.com/tools/emoji-cheat-sheet/" target="_blank">

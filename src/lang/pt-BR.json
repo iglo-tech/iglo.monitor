@@ -683,7 +683,7 @@
     "Notify Channel": "Canal de Notificação",
     "aboutNotifyChannel": "O canal de notificação acionará uma notificação na área de trabalho ou no dispositivo móvel para todos os membros do canal, independentemente de sua disponibilidade estar definida como ativa ou ausente.",
     "signalImportant": "IMPORTANTE: Você não pode misturar grupos e números nos destinatários!",
-    "aboutKumaURL": "Se você deixar o campo URL do iglo.monitor em branco, ele será definido como padrão para a página do GitHub do projeto.",
+    "aboutIgloMonitorURL": "Se você deixar o campo URL do iglo.monitor em branco, ele será definido como padrão para a página do GitHub do projeto.",
     "smtpDkimDesc": "Por favor, consulte o DKIM do Nodemailer em {0} para obter instruções de uso.",
     "Auto resolve or acknowledged": "Auto resolva ou reconhecido",
     "auto acknowledged": "reconhecimento automático",

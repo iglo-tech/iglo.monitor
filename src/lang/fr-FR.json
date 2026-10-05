@@ -261,7 +261,7 @@
     "igloMonitor URL": "URL vers iglo.monitor",
     "aboutWebhooks": "Plus d'informations sur les webhooks ici : {0}",
     "aboutChannelName": "Mettez le nom du salon dans {0} dans « Nom du salon » si vous voulez contourner le salon webhook. Ex. : #autre-salon",
-    "aboutKumaURL": "Si vous laissez l'URL d'iglo.monitor vierge, elle redirigera vers la page du projet GitHub.",
+    "aboutIgloMonitorURL": "Si vous laissez l'URL d'iglo.monitor vierge, elle redirigera vers la page du projet GitHub.",
     "emojiCheatSheet": "Aide sur les émojis : {0}",
     "rocket.chat": "Rocket.chat",
     "pushover": "Pushover",

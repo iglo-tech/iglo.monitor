@@ -41,7 +41,7 @@ class TokenBucket {
     }
 }
 
-class KumaRateLimiter {
+class KeyedRateLimiter {
     /**
      * @param {object} config Rate limiter configuration object
      */
@@ -197,7 +197,7 @@ class SourceRateLimiter extends FixedRateLimiter {
 
 class CredentialRateLimiter {
     constructor(config) {
-        this.identity = new KumaRateLimiter(config);
+        this.identity = new KeyedRateLimiter(config);
         this.fallback = new FixedRateLimiter(config, config.tokensPerInterval);
         this.source = new SourceRateLimiter(config);
     }
@@ -235,11 +235,11 @@ const apiRateLimiter = new CredentialRateLimiter({
     errorMessage: "Too frequently, try again later.",
 });
 
-const twoFaRateLimiter = new KumaRateLimiter({
+const twoFaRateLimiter = new KeyedRateLimiter({
     tokensPerInterval: 30,
     interval: "minute",
     fireImmediately: true,
     errorMessage: "Too frequently, try again later.",
 });
 
-export { CredentialRateLimiter, TokenBucket, KumaRateLimiter, loginRateLimiter, apiRateLimiter, twoFaRateLimiter };
+export { CredentialRateLimiter, TokenBucket, KeyedRateLimiter, loginRateLimiter, apiRateLimiter, twoFaRateLimiter };

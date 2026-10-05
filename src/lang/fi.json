@@ -571,7 +571,7 @@
     "signalImportant": "TÄRKEÄÄ: Et voi sekoittaa ryhmiä ja numeroita vastaanottajissa!",
     "aboutWebhooks": "Lisätietoja Webhookeista osoitteessa: {0}",
     "aboutChannelName": "Kirjoita kanavan nimi {0} Kanavan nimi -kenttään, jos haluat ohittaa Webhook-kanavan. Esimerkki: #muu-kanava",
-    "aboutKumaURL": "Jos jätät iglo.monitor URL -kentän tyhjäksi, se on oletuksena Project GitHub -sivu.",
+    "aboutIgloMonitorURL": "Jos jätät iglo.monitor URL -kentän tyhjäksi, se on oletuksena Project GitHub -sivu.",
     "smtpDkimSettings": "DKIM-asetukset",
     "smtpDkimDesc": "Katso Nodemailer DKIM {0} -sovelluksen käytöstä.",
     "documentation": "dokumentointi",

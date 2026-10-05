@@ -2,6 +2,8 @@
 
 ## Repository Identity
 
+The project is `iglo.monitor`; its canonical repository is https://github.com/iglo-tech/iglo.monitor and its default branch is `main`.
+
 iglo.monitor is an independently maintained architectural rewrite derived from the Uptime Kuma v2.4.0 codebase. It is not an upstream-parity fork and is not intended to operate as a public open-source community project.
 
 The repository is published "as is": no formal support process, no issue triage process, no release promise, and no community governance files.
@@ -35,7 +37,7 @@ The repository is published "as is": no formal support process, no issue triage 
 - Do not restore upstream community files such as `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, issue templates, PR templates, stale workflows, release workflows, or sponsor/funding files.
 - Dependency update automation uses Renovate via `renovate.json`; do not restore Dependabot.
 - Release binaries are built and published by `.github/workflows/release.yml` on `v*` tag push.
-- CI runs via `.github/workflows/ci.yml` on `master` and pull requests.
+- CI runs via `.github/workflows/ci.yml` on `main` and pull requests.
 
 ## Verification
 

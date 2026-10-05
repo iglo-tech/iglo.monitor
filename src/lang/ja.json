@@ -1059,7 +1059,7 @@
     "The phone number of the recipient in E.164 format.": "受信者の電話番号はE.164形式で入力してください。",
     "Either a text sender ID or a phone number in E.164 format if you want to be able to receive replies.": "返信を受け取るためには、テキスト送信者IDまたはE.164形式の電話番号のいずれかが必要です。",
     "Separate multiple email addresses with commas": "メールアドレスが複数の場合はカンマで区切ってください",
-    "aboutKumaURL": "iglo.monitorのURLフィールドを空白のままにすると、URLフィールドにはデフォルトでプロジェクトのGitHubページが設定されます。",
+    "aboutIgloMonitorURL": "iglo.monitorのURLフィールドを空白のままにすると、URLフィールドにはデフォルトでプロジェクトのGitHubページが設定されます。",
     "smtpDkimHashAlgo": "ハッシュアルゴリズム(オプション )",
     "smtpDkimskipFields": "署名しないヘッダーキー(オプション)",
     "Key Added": "追加キー",

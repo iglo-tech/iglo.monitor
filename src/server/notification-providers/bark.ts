@@ -13,7 +13,7 @@ import NotificationProvider from "@/server/notification-providers/notification-p
 import { DOWN, UP } from "@/constants";
 import httpClient from "@/server/http-client";
 
-const barkNotificationAvatar = "https://raw.githubusercontent.com/iglo-tech/iglo.monitor/master/public/icon.png";
+const barkNotificationAvatar = "https://raw.githubusercontent.com/iglo-tech/iglo.monitor/main/public/icon.png";
 const successMessage = "Successes!";
 
 class Bark extends NotificationProvider {

@@ -244,7 +244,7 @@
     "igloMonitor URL": "iglo.monitor URL",
     "aboutWebhooks": "Περισσότερες πληροφορίες σχετικά με τα Webhooks στο: {0}",
     "aboutChannelName": "Εισαγάγετε το όνομα του καναλιού στο {0} Όνομα καναλιού εάν θέλετε να παρακάμψετε το κανάλι Webhook. Π.χ.: #other-channel",
-    "aboutKumaURL": "Εάν αφήσετε κενό το πεδίο URL iglo.monitor, θα είναι προεπιλεγμένο στη σελίδα Project GitHub..",
+    "aboutIgloMonitorURL": "Εάν αφήσετε κενό το πεδίο URL iglo.monitor, θα είναι προεπιλεγμένο στη σελίδα Project GitHub..",
     "emojiCheatSheet": "Φύλλο εξαπάτησης emoji: {0}",
     "rocket.chat": "Rocket.Chat",
     "pushover": "Pushover",

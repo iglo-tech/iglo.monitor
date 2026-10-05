@@ -254,7 +254,7 @@
     "igloMonitor URL": "iglo.monitor URL",
     "aboutWebhooks": "Больше информации о вебхуках: {0}",
     "aboutChannelName": "Введите имя канала в поле {0} Имя канала, если вы хотите обойти канал вебхука. Например: #other-channel",
-    "aboutKumaURL": "Если поле iglo.monitor URL в настройках останется пустым, по умолчанию будет использоваться ссылка на проект на GitHub.",
+    "aboutIgloMonitorURL": "Если поле iglo.monitor URL в настройках останется пустым, по умолчанию будет использоваться ссылка на проект на GitHub.",
     "emojiCheatSheet": "Шпаргалка по Emoji: {0}",
     "User Key": "Ключ пользователя",
     "Device": "Устройство",

@@ -2,6 +2,8 @@
 
 **iglo.monitor is a lightweight, self-hosted monitoring application for websites, APIs, networks, and services.**
 
+Canonical repository: [iglo-tech/iglo.monitor](https://github.com/iglo-tech/iglo.monitor). The default branch is `main`.
+
 It provides the familiar essentials of an uptime monitor—scheduled checks, history, notifications, maintenance windows, incidents, and public status pages—while being built around a smaller and more maintainable architecture.
 
 > iglo.monitor is under active development. Expect breaking changes until the first stable release.
@@ -41,6 +43,22 @@ Open `http://localhost:3001` to complete setup.
 ```
 
 Application data is stored in `./data` by default. Real-browser monitors also require Chrome or Chromium on the host.
+
+See [Operations](docs/operations.md) for reverse proxies, maintenance, API keys, badges, and password recovery.
+
+## Develop
+
+Use Bun 1.4 or newer:
+
+```bash
+git clone https://github.com/iglo-tech/iglo.monitor.git
+cd iglo.monitor
+bun install --frozen-lockfile
+bun run hooks:install
+bun run dev
+```
+
+Run `bun run build` to produce the local `iglo.monitor` executable. CI checks `main` and pull requests; pushing a `v*` tag builds release binaries through GitHub Actions.
 
 ## Migrate from Uptime Kuma
 

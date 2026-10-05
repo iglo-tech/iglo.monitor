@@ -6,7 +6,7 @@ import net from "node:net";
 import jwt from "@/server/jwt";
 import passwordHash from "@/server/password-hash";
 import { verify as verifyTotp, encodeSecretForUri } from "@/server/totp";
-import { CredentialRateLimiter, KumaRateLimiter, TokenBucket } from "@/server/rate-limiter";
+import { CredentialRateLimiter, KeyedRateLimiter, TokenBucket } from "@/server/rate-limiter";
 
 const PASSWORD_DIVERSITY_PATTERNS = [/[a-z]/, /[A-Z]/, /[0-9]/, /[^A-Za-z0-9]/];
 const PASSWORD_STRENGTH_LEVELS = [
@@ -189,7 +189,7 @@ describe("token bucket rate limiter", () => {
     });
 
     test("isolates keys and resets a successful identity", async () => {
-        const limiter = new KumaRateLimiter({
+        const limiter = new KeyedRateLimiter({
             tokensPerInterval: 2,
             interval: 1000,
             fireImmediately: true,
@@ -204,7 +204,7 @@ describe("token bucket rate limiter", () => {
     });
 
     test("evicts identities with bounded LRU/TTL state instead of a shared overflow bucket", async () => {
-        const limiter = new KumaRateLimiter({
+        const limiter = new KeyedRateLimiter({
             tokensPerInterval: 2,
             interval: 1000,
             bucketTTL: 10_000,
@@ -224,7 +224,7 @@ describe("token bucket rate limiter", () => {
         expect(limiter.rateLimiters.has("overflow")).toBe(false);
         expect(await limiter.pass(null, 0, "blocked")).toBe(false);
 
-        const ttlLimiter = new KumaRateLimiter({
+        const ttlLimiter = new KeyedRateLimiter({
             tokensPerInterval: 1,
             interval: 1000,
             bucketTTL: 1,
@@ -236,7 +236,7 @@ describe("token bucket rate limiter", () => {
         await Bun.sleep(5);
         expect(await ttlLimiter.pass(null, 0, "expired")).toBe(true);
 
-        const bounded = new KumaRateLimiter({
+        const bounded = new KeyedRateLimiter({
             tokensPerInterval: 1,
             interval: "minute",
             fireImmediately: true,
@@ -260,7 +260,7 @@ describe("token bucket rate limiter", () => {
             { identity: "api-key:30", capacity: 60, initialFailures: 30, remaining: 30 },
             { identity: "api-key:59", capacity: 60, initialFailures: 59, remaining: 1 },
         ]) {
-            const limiter = new KumaRateLimiter({
+            const limiter = new KeyedRateLimiter({
                 tokensPerInterval: capacity,
                 interval: "minute",
                 fireImmediately: true,
@@ -287,7 +287,7 @@ describe("token bucket rate limiter", () => {
         let now = 10_000;
         Date.now = () => now;
         try {
-            const limiter = new KumaRateLimiter({
+            const limiter = new KeyedRateLimiter({
                 tokensPerInterval: 2,
                 interval: 1_000,
                 maxBuckets: 1,
@@ -336,7 +336,7 @@ describe("token bucket rate limiter", () => {
     });
 
     test("keeps a fully blocked identity through adversarial identity churn", async () => {
-        const limiter = new KumaRateLimiter({
+        const limiter = new KeyedRateLimiter({
             tokensPerInterval: 20,
             interval: "minute",
             fireImmediately: true,
@@ -355,7 +355,7 @@ describe("token bucket rate limiter", () => {
     });
 
     test("evicts only an exact identity reset or fully regenerated to capacity", async () => {
-        const limiter = new KumaRateLimiter({
+        const limiter = new KeyedRateLimiter({
             tokensPerInterval: 2,
             interval: 1_000,
             maxBuckets: 2,

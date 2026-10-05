@@ -233,7 +233,7 @@
     "igloMonitor URL": "iglo.monitor URL",
     "aboutWebhooks": "Mer informasjon om webhooks på: {0}",
     "aboutChannelName": "Skriv inn kanalnavnet på {0} Kanalnavn-feltet hvis du vil omgå webhook-kanalen. Eks: #other-channel",
-    "aboutKumaURL": "Hvis du lar iglo.monitor URL feltet være blank, den blir som standard til Github-siden for dette prosjektet.",
+    "aboutIgloMonitorURL": "Hvis du lar iglo.monitor URL feltet være blank, den blir som standard til Github-siden for dette prosjektet.",
     "emojiCheatSheet": "Emoji-jukselapp: {0}",
     "rocket.chat": "Rocket.chat",
     "pushover": "Pushover",

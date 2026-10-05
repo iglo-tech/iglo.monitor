@@ -238,7 +238,7 @@
     "igloMonitor URL": "iglo.monitor URL",
     "aboutWebhooks": "Thông tin thêm về webhook trên: {0}",
     "aboutChannelName": "Nhập tên kênh trên {0} trường Channel Name nếu bạn muốn bỏ qua kênh webhook. vd: #other-channel",
-    "aboutKumaURL": "Nếu bạn để trống trường iglo.monitor URL, mặc định sẽ là trang Project Github.",
+    "aboutIgloMonitorURL": "Nếu bạn để trống trường iglo.monitor URL, mặc định sẽ là trang Project Github.",
     "emojiCheatSheet": "Bảng tra cứu Emoji: {0}",
     "rocket.chat": "Rocket.chat",
     "pushover": "Pushover",

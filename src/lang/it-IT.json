@@ -238,7 +238,7 @@
     "igloMonitor URL": "Indirizzo iglo.monitor",
     "aboutWebhooks": "Maggiori informazioni riguardo ai webhooks su: {0}",
     "aboutChannelName": "Inserire il nome del canale nel campo \"Nome Canale\" {0} se si vuole bypassare il canale webhook. Ad esempio: #altro-canale",
-    "aboutKumaURL": "Se si lascia bianco il campo Indirizzo iglo.monitor, la pagina GitHub sarà il valore predefinito.",
+    "aboutIgloMonitorURL": "Se si lascia bianco il campo Indirizzo iglo.monitor, la pagina GitHub sarà il valore predefinito.",
     "emojiCheatSheet": "Lista Emoji: {0}",
     "rocket.chat": "Rocket.chat",
     "pushover": "Pushover",

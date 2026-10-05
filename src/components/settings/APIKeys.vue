@@ -58,7 +58,10 @@
         </div>
 
         <div class="text-center mt-3" style="font-size: 13px">
-            <a href="https://github.com/louislam/uptime-kuma/wiki/Prometheus-API-Keys" target="_blank">
+            <a
+                href="https://github.com/iglo-tech/iglo.monitor/blob/main/docs/operations.md#api-keys-and-prometheus"
+                target="_blank"
+            >
                 {{ $t("Learn More") }}
             </a>
         </div>

@@ -241,7 +241,7 @@
     "igloMonitor URL": "iglo.monitor URL",
     "aboutWebhooks": "Webhook hakkında daha fazla bilgi: {0}",
     "aboutChannelName": "Webhook kanalını atlamak istiyorsanız, {0} Kanal Adı alanına kanal adını girin. Ör: #diğer-kanal",
-    "aboutKumaURL": "iglo.monitor URL alanını boş bırakırsanız, varsayılan olarak Project GitHub sayfası olur.",
+    "aboutIgloMonitorURL": "iglo.monitor URL alanını boş bırakırsanız, varsayılan olarak Project GitHub sayfası olur.",
     "emojiCheatSheet": "Emoji referans sayfası: {0}",
     "PushByTechulus": "Push by Techulus",
     "apprise": "Apprise (50'den fazla Bildirim hizmetini destekler)",

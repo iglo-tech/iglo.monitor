@@ -233,7 +233,7 @@
     "igloMonitor URL": "Adres iglo.monitor",
     "aboutWebhooks": "Więcej informacji na temat webhooków: {0}",
     "aboutChannelName": "Podaj nazwę kanału {0} w polu Nazwa kanału, jeśli chcesz pominąć kanał webhooka. Np.: #inny-kanal",
-    "aboutKumaURL": "Jeśli pozostawisz pole Adres iglo.monitor puste, domyślnie będzie to strona projektu na GitHub.",
+    "aboutIgloMonitorURL": "Jeśli pozostawisz pole Adres iglo.monitor puste, domyślnie będzie to strona projektu na GitHub.",
     "emojiCheatSheet": "Ściąga emoji: {0}",
     "rocket.chat": "Rocket.chat",
     "pushover": "Pushover",

@@ -9,6 +9,7 @@ Deploy only an existing, successful GitHub Release. Do not change versions, crea
 
 ## Deployment contract
 
+- Resolve releases from `iglo-tech/iglo.monitor` (https://github.com/iglo-tech/iglo.monitor/releases); use `--repo iglo-tech/iglo.monitor` for repository-scoped `gh` commands.
 - Resolve the exact release tag before changing the host. Never silently switch between stable and prerelease channels.
 - Use the release artifact and `checksums-sha256.txt` from GitHub, not a local build.
 - Preserve the existing data directory and service arguments.

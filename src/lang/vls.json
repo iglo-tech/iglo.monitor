@@ -888,7 +888,7 @@
     "slackUseTemplate": "Gebruik eigen berichttemplate",
     "slackUseTemplateDescription": "Indien ingeschakeld zal het bericht met een eigen template verstuurd wordt. Ge kan liquid templating gebruiken om monitor groepsinformatie in te voegen via monitorJSON.path of monitorJSON.pathName.",
     "aboutChannelName": "Voer de kanaal naam in op {0} Kanaal naam veld als ge het Webhook kanaal wil omzeilen. Bijv: #other-channel",
-    "aboutKumaURL": "Als ge de iglo.monitor URL veld leeg laat, wordt standaard het GitHub project pagina weergegeven.",
+    "aboutIgloMonitorURL": "Als ge de iglo.monitor URL veld leeg laat, wordt standaard het GitHub project pagina weergegeven.",
     "smtpDkimSettings": "DKIM Instellingen",
     "documentation": "documentatie",
     "smtpDkimDomain": "Domein Naam",

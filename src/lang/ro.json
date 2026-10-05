@@ -646,7 +646,7 @@
     "setup a new monitor group": "configurați un nou grup de monitoare",
     "smtpDkimSettings": "Setări DKIM",
     "aboutChannelName": "Introduceți numele canalului în câmpul {0} Channel Name (Nume canal) dacă doriți să faceți bypass la canalul Webhook. Ex: #alt-canal",
-    "aboutKumaURL": "Dacă lăsați necompletat câmpul iglo.monitor URL, va fi implicit pagina de proiect GitHub.",
+    "aboutIgloMonitorURL": "Dacă lăsați necompletat câmpul iglo.monitor URL, va fi implicit pagina de proiect GitHub.",
     "smtpDkimDesc": "Vă rugăm să verificați Nodemailer DKIM {0} pentru utilizare.",
     "smtpDkimHashAlgo": "Algoritmul Hash (Opțional)",
     "smtpDkimheaderFieldNames": "Chei Header de semnat (Opțional)",

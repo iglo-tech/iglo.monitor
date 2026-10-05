@@ -255,7 +255,7 @@
     "igloMonitor URL": "iglo.monitor URL",
     "aboutWebhooks": "Meer info over Webhooks op: {0}",
     "aboutChannelName": "Voer de kanaal naam in op {0} Kanaal naam veld als je het Webhook kanaal wilt omzeilen. Bijv: #other-channel",
-    "aboutKumaURL": "Als je de iglo.monitor URL veld leeg laat, wordt standaard het GitHub project pagina weergegeven.",
+    "aboutIgloMonitorURL": "Als je de iglo.monitor URL veld leeg laat, wordt standaard het GitHub project pagina weergegeven.",
     "emojiCheatSheet": "Emoji spiekbrief: {0}",
     "PushByTechulus": "Push door Techulus",
     "clicksendsms": "ClickSend SMS",

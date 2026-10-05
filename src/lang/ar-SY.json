@@ -264,7 +264,7 @@
     "igloMonitor URL": "iglo.monitor URL",
     "aboutWebhooks": "مزيد من المعلومات حول Webhooks ON",
     "aboutChannelName": "أدخل اسم القناة في حقل اسم القناة {0} إذا كنت تريد تجاوز قناة WebHook. السابق",
-    "aboutKumaURL": "إذا تركت حقل iglo.monitor URL فارغًا، فسيتم افتراضيًا إلى صفحة GitHub Project.",
+    "aboutIgloMonitorURL": "إذا تركت حقل iglo.monitor URL فارغًا، فسيتم افتراضيًا إلى صفحة GitHub Project.",
     "emojiCheatSheet": "ورقة الغش في الرموز التعبيرية",
     "rocket.chat": "صاروخ",
     "pushover": "مهمة سهلة",

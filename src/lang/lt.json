@@ -793,7 +793,7 @@
     "documentation": "dokumentacija",
     "aboutSlackUsername": "Keičia rodomą pranešimo siuntėjo vardą. Jei norite ką nors paminėti, įtraukite tai į draugišką pavadinimą.",
     "aboutChannelName": "Įveskite kanalo pavadinimą {0} lauke „Kanalo pavadinimas“, jei norite apeiti Webhook kanalą. Pvz.: #kitas-kanalas",
-    "aboutKumaURL": "Jei paliksite iglo.monitor URL lauką tuščią, jis bus automatiškai nustatytas kaip Projekto GitHub puslapis.",
+    "aboutIgloMonitorURL": "Jei paliksite iglo.monitor URL lauką tuščią, jis bus automatiškai nustatytas kaip Projekto GitHub puslapis.",
     "PushDeer Key": "PushDeer raktas",
     "wayToGetClickSendSMSToken": "API naudotojo vardą ir API raktą galite gauti čia: {0}.",
     "Custom Monitor Type": "Pasirinktinis stebėjimo tipas",

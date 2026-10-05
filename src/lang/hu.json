@@ -248,7 +248,7 @@
     "igloMonitor URL": "iglo.monitor cím",
     "aboutWebhooks": "Webhook-okról több info: {0}",
     "aboutChannelName": "Adja meg a {0} csatorna nevét ha szeretné elkerülni a webhook-ot. Pl: #masik-csatorna",
-    "aboutKumaURL": "Ha üresen hagyja a iglo.monitor cím mezőt, akkor a projekt GitHub oldala lesz az alapértelmezett.",
+    "aboutIgloMonitorURL": "Ha üresen hagyja a iglo.monitor cím mezőt, akkor a projekt GitHub oldala lesz az alapértelmezett.",
     "emojiCheatSheet": "Emoji csalás: {0}",
     "clicksendsms": "ClickSend SMS",
     "User Key": "Felhasználói Kulcs",

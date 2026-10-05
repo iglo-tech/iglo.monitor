@@ -489,9 +489,9 @@ async function rootResponse(request, server, store, settings, disableFrameSameOr
         });
     }
 
-    const uptimeMakuEntryPage = server.entryPage;
-    if (uptimeMakuEntryPage && uptimeMakuEntryPage.startsWith("statusPage-")) {
-        return redirectResponse("/status/" + uptimeMakuEntryPage.replace("statusPage-", ""), {
+    const entryPage = server.entryPage;
+    if (entryPage && entryPage.startsWith("statusPage-")) {
+        return redirectResponse("/status/" + entryPage.replace("statusPage-", ""), {
             disableFrameSameOrigin,
         });
     }
@@ -665,9 +665,12 @@ function createBunFetchHandler({
             (request.method === "GET" || request.method === "HEAD") &&
             url.pathname === "/.well-known/change-password"
         ) {
-            return redirectResponse("https://github.com/louislam/uptime-kuma/wiki/Reset-Password-via-CLI", {
-                disableFrameSameOrigin,
-            });
+            return redirectResponse(
+                "https://github.com/iglo-tech/iglo.monitor/blob/main/docs/operations.md#password-recovery",
+                {
+                    disableFrameSameOrigin,
+                }
+            );
         }
 
         if ((request.method === "GET" || request.method === "HEAD") && url.pathname === "/metrics") {

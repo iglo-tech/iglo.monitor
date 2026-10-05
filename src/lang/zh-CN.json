@@ -261,7 +261,7 @@
     "igloMonitor URL": "iglo.monitor URL",
     "aboutWebhooks": "关于 Webhook 的更多信息：{0}",
     "aboutChannelName": "如果您想绕过 Webhook 频道，请在 {0} 字段输入所需的频道名称。例如：#other-channel",
-    "aboutKumaURL": "如果保留 iglo.monitor URL 为空，将会默认指向项目的 GitHub 页面。",
+    "aboutIgloMonitorURL": "如果保留 iglo.monitor URL 为空，将会默认指向项目的 GitHub 页面。",
     "emojiCheatSheet": "Emoji 速查：{0}",
     "rocket.chat": "Rocket.Chat",
     "pushover": "Pushover",

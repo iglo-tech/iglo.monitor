@@ -128,7 +128,7 @@ class Teams extends NotificationProvider {
                                         type: "Image",
                                         width: "32px",
                                         style: "Person",
-                                        url: "https://raw.githubusercontent.com/iglo-tech/iglo.monitor/master/public/icon.png",
+                                        url: "https://raw.githubusercontent.com/iglo-tech/iglo.monitor/main/public/icon.png",
                                         altText: "iglo.monitor Logo",
                                     },
                                 ],

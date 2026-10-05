@@ -242,7 +242,7 @@
     "igloMonitor URL": "URL iglo.monitor",
     "aboutWebhooks": "Info lain tentang webhook: {0}",
     "aboutChannelName": "Masukan nama saluran di {0} Kolom Nama Saluran jika Anda ingin melewati saluran webhook. Contoh: #saluran-lain",
-    "aboutKumaURL": "Jika Anda membiarkan bidang URL iglo.monitor kosong, itu akan menjadi bawaan ke halaman Proyek Github.",
+    "aboutIgloMonitorURL": "Jika Anda membiarkan bidang URL iglo.monitor kosong, itu akan menjadi bawaan ke halaman Proyek Github.",
     "emojiCheatSheet": "Lembar contekan emoji: {0}",
     "rocket.chat": "Rocket.chat",
     "pushover": "Pushover",

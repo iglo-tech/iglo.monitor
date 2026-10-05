@@ -51,7 +51,7 @@
                 {{ $t("aboutMattermostChannelName") }}
             </p>
             <p style="margin-top: 8px">
-                {{ $t("aboutKumaURL") }}
+                {{ $t("aboutIgloMonitorURL") }}
             </p>
             <p style="margin-top: 8px">
                 {{ $t("aboutIconURL") }}

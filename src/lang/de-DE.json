@@ -255,7 +255,7 @@
     "igloMonitor URL": "iglo.monitor-URL",
     "aboutWebhooks": "Weitere Informationen zu Webhooks: {0}",
     "aboutChannelName": "Gib den Kanalnamen im Feld \"{0} Kanalname\" ein, um den Webhook-Kanal zu umgehen. Beispiel: #anderer-kanal",
-    "aboutKumaURL": "Wenn du das Feld \"iglo.monitor URL\" leer lässt, wird standardmäßig die GitHub-Projektseite verwendet.",
+    "aboutIgloMonitorURL": "Wenn du das Feld \"iglo.monitor URL\" leer lässt, wird standardmäßig die GitHub-Projektseite verwendet.",
     "emojiCheatSheet": "Emoji-Spickzettel: {0}",
     "User Key": "Benutzerschlüssel",
     "Device": "Gerät",

@@ -1,5 +1,6 @@
 {
     "name": "iglo.monitor",
+    "description": "A lightweight, self-hosted monitoring application built on Bun.",
     "version": "1.0.0-beta.3",
     "type": "module",
     "license": "MIT",

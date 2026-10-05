@@ -238,7 +238,7 @@
     "igloMonitor URL": "iglo.monitor URL",
     "aboutWebhooks": "Več o webhook-ih: {0}",
     "aboutChannelName": "Vnesi ime kanala na {0} Channel Name polje, če želiš preskočiti webhook kanal. npr.: #drug-kanal",
-    "aboutKumaURL": "Če pustite polje iglo.monitor URL prazno, bo nastavljeno privzeto na GitHub stran projekta.",
+    "aboutIgloMonitorURL": "Če pustite polje iglo.monitor URL prazno, bo nastavljeno privzeto na GitHub stran projekta.",
     "emojiCheatSheet": "Emoji plonk listek: {0}",
     "rocket.chat": "Rocket.Chat",
     "pushover": "Pushover",

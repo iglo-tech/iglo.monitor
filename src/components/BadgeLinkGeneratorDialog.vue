@@ -12,7 +12,7 @@
                     <i18n-t keypath="Badge Link Generator Helptext" tag="p" class="form-text mb-3">
                         <template #documentation>
                             <a
-                                href="https://github.com/louislam/uptime-kuma/wiki/Badge"
+                                href="https://github.com/iglo-tech/iglo.monitor/blob/main/docs/operations.md#badges"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
