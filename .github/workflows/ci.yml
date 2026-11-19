@@ -7,7 +7,7 @@ on:
     pull_request:
 
 env:
-    BUN_VERSION: "1.4.0"
+    BUN_VERSION: "1.4.5"
 
 jobs:
     verify:
