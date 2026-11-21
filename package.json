@@ -33,6 +33,7 @@
         "lint:style:fix": "stylelint \"**/*.{vue,css,scss}\" --fix --ignore-path .gitignore",
         "fmt": "oxfmt \"**/*.{js,ts,vue,css,scss,json,md,yml,yaml}\"",
         "hooks:install": "sh scripts/install-git-hooks.sh",
+        "verify": "sh scripts/verify.sh",
         "tsc": "tsc --project ./tsconfig-backend.json",
         "audit": "bun audit",
         "test": "bun run test:backend && bun run test-e2e",
