@@ -32,7 +32,7 @@ Applies to every issue on top of its own acceptance criteria:
 - New code has no `@ts-nocheck`, no barrels, and no new process-global state, and uses `@/` imports. Backend code is written in Effect following `docs/effect.md` (D16). No lint rule is disabled without a reason comment (D17).
 - Ingest, storage, scheduling, runtime, and dependency changes include before/after numbers under `docs/perf/`.
 - New UI strings go through i18n. New screens use the #91 visual system and shell.
-- **Agent parity (P8, D14).** Any capability a user can use in the UI ships with its MCP tool(s) in the same PR or stack. UI and MCP call the same Effect service, and the tool has a test. The only exceptions are on the D15 exemption list. Once #85 lands, its parity test enforces this in CI.
+- **Agent parity (P8, D14).** Any capability a user can use in the UI ships with its MCP tool(s) in the same PR or stack. UI and MCP call the same Effect service, and the tool has a test. The only exceptions are on the D15 exemption list. Once #85 lands, its parity test enforces this in the local gate.
 
 ## Stages
 
