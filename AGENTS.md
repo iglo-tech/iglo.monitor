@@ -8,6 +8,10 @@ iglo.monitor is an independently maintained architectural rewrite derived from t
 
 The repository is published "as is": no formal support process, no issue triage process, no release promise, and no community governance files.
 
+## North Star
+
+iglo.monitor is growing from an uptime monitor into one self-hosted place for **uptime, errors, and logs**, built for solo founders and very small teams, shipped as one binary with SQLite, and fully operable by AI agents through MCP. Read [docs/north-star.md](docs/north-star.md) for the principles, scale envelope, non-goals, and fixed architecture decisions. Work is tracked as GitHub issues, with one milestone per stage and dependencies set as GitHub "blocked by" links. [docs/roadmap.md](docs/roadmap.md) explains how to pick an issue and the default definition of done. If a task conflicts with the north star, raise it instead of choosing silently.
+
 ## Current Stack
 
 - Backend: Bun 1.4 runtime, native ESM modules (`import`/`export`), Express compatibility routes, and Bun-native HTTP/WebSocket paths.
@@ -20,8 +24,11 @@ The repository is published "as is": no formal support process, no issue triage 
 ## Target Direction
 
 - Fix architecture and correctness before pursuing runtime novelty or upstream feature parity.
-- Replace god modules, hidden global state, barrel imports, service locators, and compatibility layers with explicit ownership and direct dependencies.
-- Rewrite incrementally behind characterized data and wire contracts; do not attempt an untestable greenfield replacement.
+- Replace god modules, hidden global state, barrel imports, service locators, and compatibility layers with explicit ownership and direct dependencies. Effect services provided through layers (D16) are the sanctioned dependency mechanism; they count as explicit dependencies, not as a service locator.
+- Foundation before features: no feature work until the Stage F exit gate issue (#120) is closed. Do not add code on top of untyped or `@ts-nocheck` code; rewrite what you depend on first.
+- Rewrite module by module into Effect behind characterized data and wire contracts (the FND-006 suite, #109). Whole-module rewrites are expected; untested big-bang replacements are not. Rewrites change structure, not behaviour.
+- The backend is written in Effect (decision D16). Follow `docs/effect.md` (created in FND-005, #108): services and layers for dependencies, tagged errors for expected failures, `Schema` at every boundary, scopes for resources. The SDK and the Vue frontend do not use Effect.
+- Typecheck with TypeScript 7 native (`tsrs`) in `strict` mode and lint with `@cloudflare/oxlint-config` (decision D17). Early, next-generation tooling is deliberate; pin exact versions. Disable a lint rule only with a reason comment.
 - Keep runtime execution and package management on Bun, but use Bun APIs only where they make the design smaller, clearer, or measurably better.
 - Keep SQLite as the only application database. Preserve the tested Uptime Kuma SQLite upgrade path and the `kuma.db` filename; do not add database backends for upstream parity.
 - Keep the application recognizable while allowing internal and UI architecture to change substantially.
@@ -31,7 +38,7 @@ The repository is published "as is": no formal support process, no issue triage 
 
 - Prefer `@/` path-alias imports across backend, frontend, scripts, and tests. Do not introduce relative imports (`./`, `../`) unless there is no practical alternative (for example auto-generated asset bundles, JSON `import ... with { type: "json" }` from a nearby file, or a tool that cannot resolve aliases).
 - Import from the module that owns a symbol. Do not add barrel files, transitional re-export barrels, generic registries, or a new compatibility facade unless a real external contract requires one.
-- Newly touched core modules should not add `@ts-nocheck`, broad `any` facades, or process-global state. Type existing runtime contracts incrementally instead of redesigning payloads for type convenience.
+- Do not add `@ts-nocheck`, broad `any` facades, or process-global state. A file you rewrite must end up without `@ts-nocheck` and compile under `strict`. Type existing runtime contracts as they are instead of redesigning payloads for type convenience.
 - Renames are intentionally breaking for configuration and external payloads; do not retain aliases. The only compatibility path is the automatic Uptime Kuma SQLite importer, while the `kuma.db` filename and tested upgrade path remain fixed.
 - Do not add npm or Node fallback paths for default runtime, package-manager, or verification workflows.
 - Do not restore upstream community files such as `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, issue templates, PR templates, stale workflows, release workflows, or sponsor/funding files.
@@ -56,6 +63,7 @@ Current Bun checks:
 ```bash
 bun install --frozen-lockfile
 bun run lint
+bun run typecheck   # once FND-001 lands
 bun run build
 bun run test:backend
 bun run test-e2e
