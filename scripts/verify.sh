@@ -51,19 +51,21 @@ if "$bun" -e 'process.exit(require("./package.json").scripts?.typecheck ? 0 : 1)
     "$bun" run typecheck
 fi
 
-# The frontend build rewrites src/server/generated/ while those files are still
-# tracked (until PR #72 lands). Restore them afterwards if they were clean before.
-generated=$(git ls-files src/server/generated)
-generated_was_clean=1
-if [ -n "$generated" ] && ! git diff --quiet -- src/server/generated; then
-    generated_was_clean=0
+# The frontend and binary builds rewrite src/server/generated/ and the
+# src/db/kuma.db template while those are still tracked (until PR #72 lands).
+# Restore them afterwards if they were clean before, so the gate leaves no diff.
+build_outputs="src/server/generated src/db/kuma.db"
+tracked_outputs=$(git ls-files -- $build_outputs)
+outputs_were_clean=1
+if [ -n "$tracked_outputs" ] && ! git diff --quiet -- $tracked_outputs; then
+    outputs_were_clean=0
 fi
-restore_generated() {
-    if [ -n "$generated" ] && [ "$generated_was_clean" = 1 ]; then
-        git checkout -- src/server/generated
+restore_outputs() {
+    if [ -n "$tracked_outputs" ] && [ "$outputs_were_clean" = 1 ]; then
+        git checkout -- $tracked_outputs
     fi
 }
-trap restore_generated EXIT INT TERM
+trap restore_outputs EXIT INT TERM
 
 step "frontend build"
 "$bun" run build:frontend > /dev/null

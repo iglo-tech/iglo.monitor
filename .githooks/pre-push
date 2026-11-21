@@ -37,7 +37,7 @@ if [ "$check_all" = 0 ] && [ ! -s "$list_file" ]; then
     exit 0
 fi
 
-if ! git diff --quiet HEAD -- . ':(exclude)src/server/generated'; then
+if ! git diff --quiet HEAD -- . ':(exclude)src/server/generated' ':(exclude)src/db/kuma.db'; then
     echo "pre-push: the working tree has uncommitted changes to tracked files." >&2
     echo "pre-push: the gate checks the working tree, so commit or stash them first." >&2
     exit 1
