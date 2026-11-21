@@ -10,7 +10,7 @@ The repository is published "as is": no formal support process, no issue triage 
 
 ## North Star
 
-iglo.monitor is growing from an uptime monitor into one self-hosted place for **uptime, errors, and logs**, built for solo founders and very small teams, shipped as one binary with SQLite, and fully operable by AI agents through MCP. Read [docs/north-star.md](docs/north-star.md) for the principles, scale envelope, non-goals, and fixed architecture decisions. The single action plan, covering the open GitHub issues and PRs, is in [docs/roadmap.md](docs/roadmap.md). If a task conflicts with the north star, raise it instead of choosing silently.
+iglo.monitor is growing from an uptime monitor into one self-hosted place for **uptime, errors, and logs**, built for solo founders and very small teams, shipped as one binary with SQLite, and fully operable by AI agents through MCP. Read [docs/north-star.md](docs/north-star.md) for the principles, scale envelope, non-goals, and fixed architecture decisions. Work is tracked as GitHub issues, with one milestone per stage and dependencies set as GitHub "blocked by" links. [docs/roadmap.md](docs/roadmap.md) explains how to pick an issue and the default definition of done. If a task conflicts with the north star, raise it instead of choosing silently.
 
 ## Current Stack
 
@@ -25,9 +25,9 @@ iglo.monitor is growing from an uptime monitor into one self-hosted place for **
 
 - Fix architecture and correctness before pursuing runtime novelty or upstream feature parity.
 - Replace god modules, hidden global state, barrel imports, service locators, and compatibility layers with explicit ownership and direct dependencies. Effect services provided through layers (D16) are the sanctioned dependency mechanism; they count as explicit dependencies, not as a service locator.
-- Foundation before features: no feature work until the Stage F exit criteria in [docs/roadmap.md](docs/roadmap.md) are met. Do not add code on top of untyped or `@ts-nocheck` code; rewrite what you depend on first.
-- Rewrite module by module into Effect behind characterized data and wire contracts (the FND-006 suite). Whole-module rewrites are expected; untested big-bang replacements are not. Rewrites change structure, not behaviour.
-- The backend is written in Effect (decision D16). Follow `docs/effect.md` (created in FND-005): services and layers for dependencies, tagged errors for expected failures, `Schema` at every boundary, scopes for resources. The SDK and the Vue frontend do not use Effect.
+- Foundation before features: no feature work until the Stage F exit gate issue (#120) is closed. Do not add code on top of untyped or `@ts-nocheck` code; rewrite what you depend on first.
+- Rewrite module by module into Effect behind characterized data and wire contracts (the FND-006 suite, #109). Whole-module rewrites are expected; untested big-bang replacements are not. Rewrites change structure, not behaviour.
+- The backend is written in Effect (decision D16). Follow `docs/effect.md` (created in FND-005, #108): services and layers for dependencies, tagged errors for expected failures, `Schema` at every boundary, scopes for resources. The SDK and the Vue frontend do not use Effect.
 - Typecheck with TypeScript 7 native (`tsrs`) in `strict` mode and lint with `@cloudflare/oxlint-config` (decision D17). Early, next-generation tooling is deliberate; pin exact versions. Disable a lint rule only with a reason comment.
 - Keep runtime execution and package management on Bun, but use Bun APIs only where they make the design smaller, clearer, or measurably better.
 - Keep SQLite as the only application database. Preserve the tested Uptime Kuma SQLite upgrade path and the `kuma.db` filename; do not add database backends for upstream parity.

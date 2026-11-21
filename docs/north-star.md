@@ -8,7 +8,7 @@
 Every change should move the product toward that sentence or make the codebase better able to get there.
 If a proposal does not help one of the three questions, help connect them, or reduce operating cost, it is out of scope.
 
-The single action plan that implements this direction, including the open GitHub issues and PRs, is in [the roadmap](roadmap.md).
+The work that implements this direction is tracked as GitHub issues, with one milestone per stage. [The roadmap](roadmap.md) explains how they are organised and how to pick one.
 
 ## Who it is for
 
@@ -108,10 +108,10 @@ These are fixed for this roadmap unless the decision is explicitly revisited. Re
 
 ## Guidance for AI agents
 
-1. Read this file, `AGENTS.md`, and the relevant ticket in [the roadmap](roadmap.md) before starting. A ticket's acceptance criteria are the definition of done.
-2. Work one item per branch or PR. Name the item in the PR title (`FND-012`, `OBS-105`, `SDK-003`) or reference the GitHub issue (`Refs #82`). For `#NN` items, the GitHub issue body is the spec.
-3. Respect the stage order in the roadmap. Stage F (Foundation) gates all feature work. Do not build new code on top of untyped code; rewrite what you depend on first. Do not start an item whose `Depends on` list is not merged; pick a ready item instead.
-4. If a ticket conflicts with a principle or decision above, stop and raise it. Do not quietly pick one.
-5. Keep scope narrow. Write follow-up work down as a new ticket in the roadmap, not as extra code in the current PR.
+1. Read this file, `AGENTS.md`, [the roadmap](roadmap.md), and the GitHub issue you are working on before starting. The issue's acceptance criteria plus the roadmap's default definition of done are the definition of done.
+2. Work one issue per branch or PR. Put its ID in the PR title when it has one (`FND-012`, `OBS-105`) and close it from the PR body (`Closes #112`).
+3. Respect the stage order: take work from the earliest open milestone, and do not start an issue whose GitHub "blocked by" dependencies are still open. Stage F (Foundation) gates all feature work. Do not build new code on top of untyped code; rewrite what you depend on first.
+4. If an issue conflicts with a principle or decision above, stop and comment on the issue. Do not quietly pick one.
+5. Keep scope narrow. Write follow-up work down as a new issue in the right milestone, with its blockers set, not as extra code in the current PR.
 6. Ingest, storage, and scheduling changes need before/after measurements under `docs/perf/` (principle 1, and `AGENTS.md`).
-7. When a ticket ships, set its status in the roadmap to `done` in the same PR.
+7. Decisions in this file change only through a PR that edits this file. Record the change in the decisions table.
