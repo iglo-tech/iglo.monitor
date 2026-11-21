@@ -1,7 +1,7 @@
 # Roadmap
 
 How the work toward the [north star](north-star.md) is organised: uptime, errors, and logs in one self-hosted binary that AI agents can fully operate.
-Read the north star first. Its principles (P1–P8) and decisions (D1–D17) apply to every work item.
+Read the north star first. Its principles (P1–P8) and decisions (D1–D18) apply to every work item.
 
 ## Where things live
 
@@ -17,7 +17,7 @@ Read the north star first. Its principles (P1–P8) and decisions (D1–D17) app
 1. Take an open, unassigned issue from the **earliest open milestone** whose blockers are all closed. Assign yourself before starting.
     - List a stage: `gh issue list --milestone "Stage F — Foundation" --state open`
     - Check blockers: `gh api repos/iglo-tech/iglo.monitor/issues/<n>/dependencies/blocked_by -q '.[] | "\(.number) \(.state)"'`
-2. Exceptions to milestone order: FND-001, FND-002, and FND-003 (#104–#106) may start while Stage 0 is open, and #91 (visual system) may run during Stage F.
+2. SCOPE-001 (#192) comes before everything: it removes the public-facing features so later work starts from less code. After it, FND-001, FND-002, and FND-003 (#104–#106) may start while Stage 0 is open, and #91 (visual system) may run during Stage F.
 3. Every Stage 1+ item is blocked, directly or through its dependencies, by the **Stage F exit gate (#120)**. Session replay (Stage 7) additionally waits until stages 0–6 are shipped (D13).
 4. One issue per branch and PR. Put the ID in the PR title when it has one (`FND-012: ...`) and close the issue from the PR body (`Closes #112`).
 5. If an issue conflicts with the north star or `AGENTS.md`, stop and comment on the issue. Do not quietly pick one side.
@@ -36,22 +36,22 @@ Applies to every issue on top of its own acceptance criteria:
 
 ## Stages
 
-| Stage | Milestone                                                                               | Goal                                                                                                                                      |
-| ----- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | [Land open PRs](https://github.com/iglo-tech/iglo.monitor/milestone/1)                  | Rebase and land PRs #72, #71, #69, #65, #68, #67, #66 (issues #97–#103).                                                                  |
-| F     | [Foundation](https://github.com/iglo-tech/iglo.monitor/milestone/2)                     | Typecheck, lint preset, test discovery, guardrails, Effect runtime, characterization suite, then the Effect rewrite. Gate: #120.          |
-| 1     | [Platform and agent foundations](https://github.com/iglo-tech/iglo.monitor/milestone/3) | State machine, sanitizer, freshness, bounded execution, outbox part A, visual system, scoped keys, MCP server, telemetry skeleton.        |
-| 2     | [**Errors MVP**](https://github.com/iglo-tech/iglo.monitor/milestone/4)                 | First user-visible release: grouped issues from any Sentry SDK or the first-party SDK, alerts, bounded storage, all operable through MCP. |
-| 3     | [Logs, incidents, self-health](https://github.com/iglo-tech/iglo.monitor/milestone/5)   | Log ingest, search, and alerts; operational incidents; monitor health; the remaining agent tools, activity log, and `get_overview`.       |
-| 4     | [**One view**, agent-run setup](https://github.com/iglo-tech/iglo.monitor/milestone/6)  | Unified home and incident timeline across all three signals; agent-first service setup; MCP connection guide.                             |
-| 5     | [JS stacks and cron jobs](https://github.com/iglo-tech/iglo.monitor/milestone/7)        | Source maps, job-run lifecycles, Sentry cron check-ins.                                                                                   |
-| 6     | [Uptime polish](https://github.com/iglo-tech/iglo.monitor/milestone/8)                  | Public snapshot and status pages, test-once and simpler forms, remote second opinion, latency percentiles.                                |
-| 7     | [**Post-MVP**: session replay](https://github.com/iglo-tech/iglo.monitor/milestone/9)   | Replay on errors only (D13).                                                                                                              |
+| Stage | Milestone                                                                               | Goal                                                                                                                                                                  |
+| ----- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | [Land open PRs](https://github.com/iglo-tech/iglo.monitor/milestone/1)                  | Remove public-facing features first (#192), then rebase and land PRs #72, #71, #69, #65, #68, #67, #66 (issues #97–#103).                                             |
+| F     | [Foundation](https://github.com/iglo-tech/iglo.monitor/milestone/2)                     | Typecheck, lint preset, test discovery, guardrails, Effect runtime, characterization suite, then the Effect rewrite. Gate: #120.                                      |
+| 1     | [Platform and agent foundations](https://github.com/iglo-tech/iglo.monitor/milestone/3) | State machine, sanitizer, freshness, bounded execution, outbox part A, visual system, scoped keys, MCP server, telemetry skeleton.                                    |
+| 2     | [**Errors MVP**](https://github.com/iglo-tech/iglo.monitor/milestone/4)                 | First user-visible release: grouped issues from any Sentry SDK or the first-party SDK, alerts, bounded storage, all operable through MCP.                             |
+| 3     | [Logs, incidents, self-health](https://github.com/iglo-tech/iglo.monitor/milestone/5)   | Logs: ingest, search, alerts, saved views, drop rules, patterns, compressed history. One alert per mass outage. Incidents, monitor health, the remaining agent tools. |
+| 4     | [**One view**, agent-run setup](https://github.com/iglo-tech/iglo.monitor/milestone/6)  | Unified home and incident timeline across all three signals; agent-first service setup; MCP connection guide.                                                         |
+| 5     | [JS stacks and cron jobs](https://github.com/iglo-tech/iglo.monitor/milestone/7)        | Source maps, releases, job-run lifecycles with output, Sentry cron check-ins.                                                                                         |
+| 6     | [Uptime polish](https://github.com/iglo-tech/iglo.monitor/milestone/8)                  | Test-once and simpler forms, remote second opinion, latency percentiles.                                                                                              |
+| 7     | [**Post-MVP**: session replay](https://github.com/iglo-tech/iglo.monitor/milestone/9)   | Replay on errors only (D13).                                                                                                                                          |
 
 ## Critical path
 
 ```text
-Stage 0 PRs (#97–#103) ──► FND-005 Effect runtime (#108) + FND-006 characterization (#109) ──► FND-010–019 rewrites (#110–#119) ──► Stage F gate (#120) ──► Stage 1
+SCOPE-001 (#192) ──► Stage 0 PRs (#97–#103) ──► FND-005 Effect runtime (#108) + FND-006 characterization (#109) ──► FND-010–019 rewrites (#110–#119) ──► Stage F gate (#120) ──► Stage 1
 #67 + FND-010 SQLite service (#110) ──► OBS-002 events.db (#122) ──► OBS-003 projects (#123) ──► OBS-102 ingest (#133) ──► OBS-105 grouping (#136) ──► OBS-109/110 issues UI (#140, #141)
 #80 scheduling lag ──► OBS-103 bounded ingest queue (#134), which proves P1
 #79 outbox part A ──► OBS-107 issue alerts (#138) ──► OBS-208 log alerts (#164) ──► OBS-304 correlated notifications (#174)
@@ -72,6 +72,7 @@ Candidates for after stage 7. Each must be checked against the north-star non-go
 - OTLP/HTTP logs endpoint.
 - A REST adapter over the same query and command services, only if a real script or integration needs one (D14).
 - OAuth for MCP, only if a client the owner uses cannot send a bearer key.
-- Release tracking (first seen in a release, resolve in the next release).
+- Scripted browser checks (Playwright login or checkout flows). Needs a Chromium install on the server.
+- Log alerts on relative change ("error rate up 3× compared with yesterday").
 - Export and import of a project's telemetry.
 - Per-project ingest quotas and sampling.
