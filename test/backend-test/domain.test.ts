@@ -6,6 +6,7 @@ import TestDB from "../mock-testdb";
 import { Settings } from "@/server/settings";
 import dayjs from "dayjs";
 import dayjsPlugin_10 from "dayjs/plugin/utc";
+import rdapDnsFixture from "@/server/assets/rdap-dns.json" with { type: "json" };
 
 process.env.IGLO_MONITOR_HIDE_LOG = ["info_db", "info_server"].join(",");
 
@@ -49,8 +50,33 @@ describe("Domain Expiry", () => {
     });
 
     test("getExpiryDate() returns correct expiry date for .wiki domain with no A record", async () => {
-        const d = DomainExpiry.createByName("google.wiki", testDb.store);
-        expect(await d.getExpiryDate(settings)).toEqual(new Date("2026-11-26T23:59:59.000Z"));
+        // Recorded RDAP answers instead of live lookups: the real registration changes when the
+        // domain is renewed, which made this test fail once google.wiki was renewed in 2026.
+        const realFetch = globalThis.fetch;
+        const fetchSpy = spyOn(globalThis, "fetch").mockImplementation(async (input, init) => {
+            const url = String(input instanceof Request ? input.url : input);
+            if (url.startsWith("https://data.iana.org/rdap/dns.json")) {
+                return Response.json(rdapDnsFixture);
+            }
+            if (url.endsWith("/domain/google.wiki")) {
+                return Response.json({
+                    objectClassName: "domain",
+                    ldhName: "google.wiki",
+                    events: [
+                        { eventAction: "registration", eventDate: "2015-05-26T15:29:31Z" },
+                        { eventAction: "expiration", eventDate: "2027-11-26T23:59:59Z" },
+                    ],
+                });
+            }
+            return realFetch(input, init);
+        });
+        try {
+            const d = DomainExpiry.createByName("google.wiki", testDb.store);
+            expect(await d.getExpiryDate(settings)).toEqual(new Date("2027-11-26T23:59:59.000Z"));
+            expect(fetchSpy.mock.calls.some(([input]) => String(input).endsWith("/domain/google.wiki"))).toBe(true);
+        } finally {
+            fetchSpy.mockRestore();
+        }
     });
 
     describe("checkSupport()", () => {
