@@ -44,17 +44,22 @@ iglo.monitor is growing from an uptime monitor into one self-hosted place for **
 - Do not restore upstream community files such as `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, issue templates, PR templates, stale workflows, release workflows, or sponsor/funding files.
 - Dependency update automation uses Renovate via `renovate.json`; do not restore Dependabot.
 - Release binaries are built and published by `.github/workflows/release.yml` on `v*` tag push.
-- CI runs via `.github/workflows/ci.yml` on `main` and pull requests.
+- Gates run locally, in git hooks. CI (`.github/workflows/ci.yml`) runs only after a merge to `main` (and by hand via `workflow_dispatch`); it is a safety net, not the gate. Do not add CI jobs or pull-request triggers to replace a local check.
 
 ## Verification
 
 Use the command set that matches the changed area.
 
-Git hooks (once per clone):
+Git hooks are the gate. Install them once per clone (the setting is shared by all worktrees of the clone):
 
 ```bash
 bun run hooks:install
 ```
+
+- **pre-commit** (seconds): formats staged files with `oxfmt`, then lints them with `oxlint` and `stylelint`. Lint errors block the commit.
+- **pre-push** (a minute or two): runs `scripts/verify.sh` for the paths the push changes: lint, typecheck (once it exists), frontend build, backend tests, end-to-end tests when UI paths changed, and compiled-binary tests when build or runtime-loading paths changed. Documentation-only pushes skip the app checks. The tree must be clean, because the checks run against it.
+- `bun run verify` runs every check by hand.
+- Never bypass the hooks (`--no-verify`). If a hook fails, fix the cause. If `main` CI fails after a merge, fixing it comes before any other work.
 
 The pre-commit hook formats staged files with `oxfmt` before each commit. It formats whole files and re-stages them, so partial staging (`git add -p`) is not preserved. Requires Bun (auto-discovered), `perl`, and paths excluded in `.oxfmtrc.json` `ignorePatterns` to stay aligned with the hook’s pre-filter. If a Git GUI strips the environment, set `BUN_BIN` to the absolute path of your `bun` executable.
 

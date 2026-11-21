@@ -27,7 +27,7 @@ Read the north star first. Its principles (P1–P8) and decisions (D1–D18) app
 
 Applies to every issue on top of its own acceptance criteria:
 
-- The checks from `AGENTS.md` for the changed area pass (`bun run lint`, `bun run typecheck` once FND-001 lands, `bun run build`, `bun run test:backend`, and `bun run test-e2e` for UI work).
+- The local gates pass: the pre-commit hook on every commit and the pre-push hook (`scripts/verify.sh`) on every push. Install them with `bun run hooks:install` and never bypass them. CI runs only after the merge to `main`.
 - New backend tests are added to the `test:backend:unit` list in `package.json` until FND-003 (#106) replaces the list with discovery.
 - New code has no `@ts-nocheck`, no barrels, and no new process-global state, and uses `@/` imports. Backend code is written in Effect following `docs/effect.md` (D16). No lint rule is disabled without a reason comment (D17).
 - Ingest, storage, scheduling, runtime, and dependency changes include before/after numbers under `docs/perf/`.

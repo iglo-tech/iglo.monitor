@@ -1,0 +1,51 @@
+#!/bin/sh
+# Pre-push hook (full gate): runs scripts/verify.sh on the paths this push
+# changes. CI runs only after a merge to main, so this is the gate that matters.
+#
+# The checks run against the working tree, so the tree must match what is being
+# pushed: commit or stash tracked changes first.
+set -eu
+
+root=$(git rev-parse --show-toplevel)
+cd "$root"
+
+zero=0000000000000000000000000000000000000000
+list_file=$(mktemp)
+check_all=0
+trap 'rm -f "$list_file"' EXIT INT TERM
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+    # Deleting a remote branch: nothing to check.
+    [ "$local_sha" = "$zero" ] && continue
+
+    base=""
+    if [ "$remote_sha" != "$zero" ] && git cat-file -e "$remote_sha^{commit}" 2>/dev/null; then
+        base=$remote_sha
+    else
+        base=$(git merge-base "$local_sha" origin/main 2>/dev/null || true)
+    fi
+
+    if [ -n "$base" ]; then
+        git diff --name-only "$base" "$local_sha" >> "$list_file"
+    else
+        # No common history with origin/main: check everything.
+        check_all=1
+    fi
+done
+
+if [ "$check_all" = 0 ] && [ ! -s "$list_file" ]; then
+    exit 0
+fi
+
+if ! git diff --quiet HEAD -- . ':(exclude)src/server/generated'; then
+    echo "pre-push: the working tree has uncommitted changes to tracked files." >&2
+    echo "pre-push: the gate checks the working tree, so commit or stash them first." >&2
+    exit 1
+fi
+
+if [ "$check_all" = 1 ]; then
+    sh "$root/scripts/verify.sh"
+else
+    sort -u "$list_file" -o "$list_file"
+    sh "$root/scripts/verify.sh" --changed "$list_file"
+fi
