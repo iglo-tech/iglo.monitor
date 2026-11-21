@@ -74,6 +74,8 @@ step "backend tests"
 ui_paths='^(src/(pages|components|composables|layouts|mixins|util|lang|assets|router|stores|i18n|icon)|src/[^/]+\.(vue|ts|js)$|config/(vite|playwright)|test/e2e/|package\.json$|bun\.lock$)'
 if touches "$ui_paths"; then
     step "end-to-end tests"
+    # Installs the Chromium build that this Playwright version expects; a no-op when present.
+    "$bun" x playwright install chromium > /dev/null
     "$bun" run test-e2e
 else
     echo ""
