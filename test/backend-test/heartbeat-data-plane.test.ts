@@ -20,6 +20,7 @@ import { Settings } from "@/server/settings";
 import { Prometheus } from "@/server/prometheus";
 import { handleApiRequest } from "@/server/routers/api-router";
 import { chartSocketHandler } from "@/server/socket-handlers/chart-socket-handler";
+import { clearSocketHandler } from "@/server/socket-handlers/clear-socket-handler";
 import { createResponseCache } from "@/server/bun-response";
 import { DOWN, MAINTENANCE, PENDING, UP } from "@/constants";
 
@@ -248,6 +249,61 @@ describe("heartbeat data plane", () => {
         await data.clearAll(1);
         expect(await data.latest(1)).toBeNull();
         expect(await data.latest(2)).not.toBeNull();
+    });
+
+    test("keeps clear socket acknowledgements and monitor restart ordering", async () => {
+        const { data, server, store } = await createRuntime("clear-socket");
+        const handlers = {};
+        const emitted = [];
+        const lifecycle = [];
+        const socket = {
+            userID: 1,
+            emit: (...args) => emitted.push(args),
+            on: (event, handler) => {
+                handlers[event] = handler;
+            },
+        };
+        const runningMonitor = {
+            id: 1,
+            user_id: 1,
+            active: 1,
+            stop: async () => lifecycle.push("stop"),
+        };
+        server.monitorList[1] = runningMonitor;
+        const io = {
+            to: () => ({
+                emit: (...args) => emitted.push(args),
+            }),
+        };
+
+        clearSocketHandler(socket, data, io, server, async (userID, monitorID) => {
+            lifecycle.push(["restart", userID, monitorID]);
+        });
+
+        await data.write(heartbeat(store, { msg: "event" }));
+        let response;
+        await handlers.clearEvents(1, (result) => {
+            response = result;
+        });
+        expect(response).toEqual({ ok: true });
+        expect((await data.latest(1)).toJSON()).toMatchObject({ msg: "", important: 0 });
+
+        await data.write(heartbeat(store, { msg: "heartbeat" }));
+        await handlers.clearHeartbeats(1, (result) => {
+            response = result;
+        });
+        expect(response).toEqual({ ok: true });
+        expect(await data.list(1)).toEqual([]);
+        expect(lifecycle).toEqual(["stop", ["restart", 1, 1]]);
+        expect(emitted).toContainEqual(["heartbeatList", 1, [], true]);
+
+        await data.write(heartbeat(store, { msg: "statistics" }));
+        await handlers.clearStatistics((result) => {
+            response = result;
+        });
+        expect(response).toEqual({ ok: true });
+        expect(await data.list(1)).toEqual([]);
+        expect(lifecycle).toEqual(["stop", ["restart", 1, 1], "stop", ["restart", 1, 1]]);
     });
 
     test("filters recent heartbeat reads by the authenticated owner", async () => {

@@ -7,7 +7,6 @@
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { getRuntimeInfo, isBunRuntime } from "@/server/runtime";
-import { clearWithStoppedMonitors } from "@/server/monitor-clear";
 import { args } from "@/server/args";
 import { sleep } from "@/util/sleep";
 import { log } from "@/server/logger";
@@ -93,6 +92,7 @@ import { apiKeySocketHandler } from "@/server/socket-handlers/api-key-socket-han
 import { generalSocketHandler } from "@/server/socket-handlers/general-socket-handler";
 import { clearResponseCache, createResponseCache } from "@/server/bun-response";
 import { chartSocketHandler } from "@/server/socket-handlers/chart-socket-handler";
+import { clearSocketHandler } from "@/server/socket-handlers/clear-socket-handler";
 import { writeErrorLog } from "@/server/error-log";
 
 console.log("Welcome to iglo.monitor");
@@ -1525,77 +1525,7 @@ let needSetup = false;
             }
         });
 
-        socket.on("clearEvents", async (monitorID, callback) => {
-            try {
-                checkLogin(socket);
-
-                log.info("manage", `Clear Events Monitor: ${monitorID} User ID: ${socket.userID}`);
-
-                await heartbeatData.clearEvents(socket.userID, monitorID);
-
-                callback({
-                    ok: true,
-                });
-            } catch (e) {
-                callback({
-                    ok: false,
-                    msg: e.message,
-                });
-            }
-        });
-
-        socket.on("clearHeartbeats", async (monitorID, callback) => {
-            try {
-                checkLogin(socket);
-
-                log.info("manage", `Clear Heartbeats Monitor: ${monitorID} User ID: ${socket.userID}`);
-
-                const monitor = server.monitorList[monitorID];
-                const ownedMonitors = monitor?.user_id === socket.userID ? [monitor] : [];
-                await clearWithStoppedMonitors(
-                    ownedMonitors,
-                    () => heartbeatData.clearMonitor(socket.userID, monitorID),
-                    (runningMonitor) => restartMonitor(socket.userID, runningMonitor.id)
-                );
-
-                await sendHeartbeatList(heartbeatData, io, socket, monitorID, true, true);
-
-                callback({
-                    ok: true,
-                });
-            } catch (e) {
-                callback({
-                    ok: false,
-                    msg: e.message,
-                });
-            }
-        });
-
-        socket.on("clearStatistics", async (callback) => {
-            try {
-                checkLogin(socket);
-
-                log.info("manage", `Clear Statistics User ID: ${socket.userID}`);
-
-                const ownedMonitors = Object.values(server.monitorList).filter(
-                    (monitor) => monitor.user_id === socket.userID
-                );
-                await clearWithStoppedMonitors(
-                    ownedMonitors,
-                    () => heartbeatData.clearAll(socket.userID),
-                    (monitor) => restartMonitor(socket.userID, monitor.id)
-                );
-
-                callback({
-                    ok: true,
-                });
-            } catch (e) {
-                callback({
-                    ok: false,
-                    msg: e.message,
-                });
-            }
-        });
+        clearSocketHandler(socket, heartbeatData, io, server, restartMonitor);
 
         // Status Page Socket Handler for admin only
         statusPageSocketHandler(socket, store, server, settings, responseCache);
